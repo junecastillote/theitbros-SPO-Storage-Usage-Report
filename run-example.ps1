@@ -24,7 +24,11 @@ $spoSiteStorageUsage = .\Get-SPOSiteStorageUsage.ps1 -View 'Sites Without a Grou
 
 # Export to file
 $spoSiteStorageUsage | Export-Csv -Path .\spoSiteStorageUsage.csv -NoTypeInformation
-$spoSiteStorageUsage | Export-Clixml  -Path .\spoSiteStorageUsage.xml
+$spoSiteStorageUsage | Export-Clixml -Path .\spoSiteStorageUsage.xml
 $spoSiteStorageUsage | ConvertTo-Json | Out-File -Path .\spoSiteStorageUsage.json
-$spoSiteStorageUsage | ConvertTo-Html | Out-File -Path .\spoSiteStorageUsage.html
 $spoSiteStorageUsage | ConvertTo-Yaml | Out-File -Path .\spoSiteStorageUsage.Yaml
+$spoSiteStorageUsage | ConvertTo-Html | Out-File -Path .\spoSiteStorageUsage.html
+$spoSiteStorageUsage |
+ConvertTo-Html `
+    -CssUri .\style1.css |
+Out-File .\spoSiteStorageUsage.html
